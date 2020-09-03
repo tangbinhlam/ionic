@@ -5,17 +5,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of [1,2,4,5,6,7,8,9,10]">
-    <ion-img [src] = "'https://media-exp1.licdn.com/dms/image/C4E35AQHNb5lcXI0pVg/profile-framedphoto-shrink_200_200/0?e=1599260400&v=beta&t=lkUoJXcbmteF6QXZXPccz88UurKWkOlmO6T-sF_ch50'"></ion-img>
+  <div *ngIf="activities$ | async as activities">
+  <ion-card button *ngFor="let activity of activities">
+    <ion-img [src] = "activity.cropped"></ion-img>
     <ion-card-header>
-      <ion-card-subtitle>Osalam's Activity</ion-card-subtitle>
-      <ion-card-title>Lam Tang</ion-card-title>
+      <ion-card-title>{{activity.name}}</ion-card-title>
+      <ion-card-subtitle>Created by: {{activity.created_by}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      My Visa status is F1, work authorization is CPT (full time ) as same W-2. Does it work for this position?
+      {{activity.description}}
     </ion-card-content>
-    <ion-item>
-      <ion-button class="ion-float-sm-right">Try it</ion-button>
-    </ion-item>
   </ion-card>
+  </div>
 </ion-content>
