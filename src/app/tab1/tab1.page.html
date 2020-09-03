@@ -1,18 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-      <ion-title>Action Sheet</ion-title>
+      <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Action Sheet</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content fullscreen class="ion-padding">
-    <ion-button expand="block" (click)="presentActionSheet()">Show Action Sheet</ion-button>
-    <ion-button expand="block" (click)="presentAlert()">Show Alert</ion-button>
-  </ion-content>
+<ion-content>
+  <ion-card *ngFor="let item of [1,2,4,5,6,7,8,9,10]">
+    <ion-img [src] = "'https://media-exp1.licdn.com/dms/image/C4E35AQHNb5lcXI0pVg/profile-framedphoto-shrink_200_200/0?e=1599260400&v=beta&t=lkUoJXcbmteF6QXZXPccz88UurKWkOlmO6T-sF_ch50'"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Osalam's Activity</ion-card-subtitle>
+      <ion-card-title>Lam Tang</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      My Visa status is F1, work authorization is CPT (full time ) as same W-2. Does it work for this position?
+    </ion-card-content>
+    <ion-item>
+      <ion-button class="ion-float-sm-right">Try it</ion-button>
+    </ion-item>
+  </ion-card>
 </ion-content>

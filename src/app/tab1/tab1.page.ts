@@ -11,7 +11,6 @@ export class Tab1Page {
     public actionSheetController: ActionSheetController,
     public alertController: AlertController,
   ) {}
-
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Albums',
