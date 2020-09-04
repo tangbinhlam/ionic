@@ -17,10 +17,22 @@ const routes: Routes = [
           },
           {
             path: 'activity-detail/:id',
-            loadChildren: () =>
-              import('../activity-detail/activity-detail.module').then(
-                (m) => m.ActivityDetailPageModule,
-              ),
+            children: [
+              {
+                path: '',
+                loadChildren: () =>
+                  import('../activity-detail/activity-detail.module').then(
+                    (m) => m.ActivityDetailPageModule,
+                  ),
+              },
+              // {
+              //   path: 'activity-video',
+              //   loadChildren: () =>
+              //     import('../activity-video/activity-video.module').then(
+              //       (m) => m.ActivityVideoPageModule,
+              //     ),
+              // },
+            ],
           },
         ],
       },

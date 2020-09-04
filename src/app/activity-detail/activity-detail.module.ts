@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ActivityDetailPageRoutingModule } from './activity-detail-routing.module';
 
 import { ActivityDetailPage } from './activity-detail.page';
+import { ActivityVideoPageModule } from '../activity-video/activity-video.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ActivityDetailPageRoutingModule
+    ActivityDetailPageRoutingModule,
+    ActivityVideoPageModule,
   ],
-  declarations: [ActivityDetailPage]
+  declarations: [ActivityDetailPage],
 })
 export class ActivityDetailPageModule {}

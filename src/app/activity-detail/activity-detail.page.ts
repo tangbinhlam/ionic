@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Activity } from '../domain/models/activity.model';
 import { ActivityService } from '../activity.service';
+import { ModalController } from '@ionic/angular';
+import { ActivityVideoPage } from '../activity-video/activity-video.page';
 
 @Component({
   selector: 'app-activity-detail',
@@ -14,6 +16,7 @@ export class ActivityDetailPage implements OnInit {
   activity$: Observable<Activity>;
 
   constructor(
+    private _modelController: ModalController,
     private _route: ActivatedRoute,
     private _activityService: ActivityService,
   ) {}
@@ -23,5 +26,12 @@ export class ActivityDetailPage implements OnInit {
       map((param) => param['id']),
       switchMap((id) => this._activityService.getActivity$(id)),
     );
+  }
+
+  async openModel() {
+    const modal = await this._modelController.create({
+      component: ActivityVideoPage,
+    });
+    return await modal.present();
   }
 }
