@@ -9,8 +9,8 @@
 
 <ion-content>
   <div *ngIf="activity$ | async as activity">
-    <ion-card>
-     <ion-img [src] = "activity.cropped"></ion-img>
+    <ion-img [src] = "activity.cropped"></ion-img>
+    <ion-card class="ion-no-margin">
       <ion-card-header>
         <ion-card-title>{{activity.name}}</ion-card-title>
         <ion-card-subtitle>Created by: {{activity.created_by}}</ion-card-subtitle>
@@ -18,6 +18,28 @@
       <ion-card-content>
         {{activity.description}}
       </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label>Duration</ion-label>
+          <ion-chip color="primary" mode="ios" outline="true">
+            <ion-label>{{activity.duration}}</ion-label>
+          </ion-chip>
+        </ion-item>
+        <ion-item>
+          <ion-label>Category</ion-label>
+          <ion-chip color="primary" mode="ios" outline="true">
+            <ion-label>{{activity.category}}</ion-label>
+          </ion-chip>
+        </ion-item>
+        <ion-item>
+          <ion-label>Popularity</ion-label>
+          <ion-chip color="primary" mode="ios" outline="true">
+            <ion-label>{{activity.popularity}}</ion-label>
+          </ion-chip>
+        </ion-item>
+      </ion-list>
     </ion-card>
   </div>
 </ion-content>
