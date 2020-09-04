@@ -14,6 +14,8 @@ export class Tab1Page implements OnInit {
   constructor(private _activityService: ActivityService) {}
 
   ngOnInit() {
-    this.activities$ = this._activityService.getActivities$();
+    setTimeout(() => {
+      this.activities$ = this._activityService.getActivities$();
+    }, 3000);
   }
 }

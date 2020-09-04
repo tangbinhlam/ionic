@@ -5,6 +5,15 @@
 </ion-header>
 
 <ion-content>
+  <div *ngIf="!(activities$ | async)">
+    <ion-card *ngFor="let x of [1,2,3]">
+      <ion-skeleton-text animated style="height: 175px;"></ion-skeleton-text>
+      <ion-card-header>
+        <ion-skeleton-text animated></ion-skeleton-text>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-card-header>
+    </ion-card>
+  </div>
   <div *ngIf="activities$ | async as activities">
   <ion-card button *ngFor="let activity of activities" [routerLink]="['activity-detail', activity.id]">
     <ion-img [src] = "activity.cropped"></ion-img>
@@ -12,9 +21,6 @@
       <ion-card-title>{{activity.name}}</ion-card-title>
       <ion-card-subtitle>Created by: {{activity.created_by}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content>
-      {{activity.description}}
-    </ion-card-content>
   </ion-card>
   </div>
 </ion-content>
