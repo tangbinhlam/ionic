@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Activity Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="activity$ | async as activity">
+    <ion-card>
+     <ion-img [src] = "activity.cropped"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{activity.name}}</ion-card-title>
+        <ion-card-subtitle>Created by: {{activity.created_by}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{activity.description}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
