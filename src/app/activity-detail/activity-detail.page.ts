@@ -28,9 +28,12 @@ export class ActivityDetailPage implements OnInit {
     );
   }
 
-  async openModel() {
+  async openModel(videlURL: string) {
     const modal = await this._modelController.create({
       component: ActivityVideoPage,
+      componentProps: {
+        videoURL: videlURL,
+      },
     });
     return await modal.present();
   }

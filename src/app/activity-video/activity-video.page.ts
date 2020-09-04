@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-activity-video',
@@ -7,9 +7,16 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./activity-video.page.scss'],
 })
 export class ActivityVideoPage implements OnInit {
-  constructor(private _modelController: ModalController) {}
+  videoUrl: string;
 
-  ngOnInit() {}
+  constructor(
+    private _navParams: NavParams,
+    private _modelController: ModalController,
+  ) {}
+
+  ngOnInit() {
+    this.videoUrl = this._navParams.get('videoURL');
+  }
 
   closeModel() {
     this._modelController.dismiss();
